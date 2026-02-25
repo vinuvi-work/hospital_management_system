@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('nic')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->date('birth_day');
+            $table->enum('gender', ['Male', 'Female']);
+            $table->enum('specialization', ['Cardiology', 'Endocrinology', 'Gastroenterology', 'Hematology', 'Neurology']);
+            $table->longText('qualification');
+            $table->longText('expereince');
             $table->timestamps();
         });
     }
