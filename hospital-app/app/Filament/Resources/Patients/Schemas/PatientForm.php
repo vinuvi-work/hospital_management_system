@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Patients\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
 use Filament\Schemas\Schema;
 
 class PatientForm
@@ -29,10 +30,15 @@ class PatientForm
                 TextInput::make('age')
                     ->required()
                     ->numeric(),
-                TextInput::make('gender')
-                    ->required(),
-                TextInput::make('blood_type')
-                    ->required(),
+                Select::make('gender')
+                    ->required()
+                    ->options([
+                        'Male' => 'Male',
+                        'Female' => 'Female'
+                    ]),
+                Select::make('blood_type')
+                    ->required()
+                    ->options(['A+' => 'A+','A-' => 'A-','O+' => 'O+','O-' => 'O-','AB+' => 'AB+', 'AB-' => 'AB-']),
                 Textarea::make('health_history')
                     ->required()
                     ->columnSpanFull(),
