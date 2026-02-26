@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Appoinment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         Doctor::factory(10)->create();
         Patient::factory(10)->create();
+        Appoinment::factory(10)->create();
 
         User::factory()->create([
             'name' => 'admin user',
